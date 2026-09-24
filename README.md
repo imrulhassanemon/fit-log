@@ -14,8 +14,6 @@ The application provides a clean dark-themed fitness interface designed for a sm
 
 🔗 **GitHub:** `YOUR_GITHUB_REPOSITORY_LINK_HERE`
 
-# 🏋️ FitLog
-
 ---
 
 ## 🛠️ Technologies Used
