@@ -4,7 +4,7 @@ import Link from "next/link";
 const Banner = () => {
   return (
     <section className="px-4 pt-6 sm:px-6 lg:px-8">
-      <div className="relative mx-auto flex min-h-[360px] max-w-7xl items-center overflow-hidden rounded-xl border border-zinc-800 bg-[#15171c]">
+      <div className="relative mx-auto flex min-h-90 max-w-7xl items-center overflow-hidden rounded-xl border border-zinc-800 bg-[#15171c]">
 
         {/* Background Glow */}
         <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-lime-400/5 blur-3xl" />
