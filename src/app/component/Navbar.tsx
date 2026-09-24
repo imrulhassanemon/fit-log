@@ -11,7 +11,7 @@ const Navbar = () => {
 
   const isWorkouts = pathname === "/workouts" || pathname.startsWith("/workouts/");
 
-  const isPlan = pathname === "/plan" || pathname.startsWith("/plan/");
+  const isPlan = pathname === "/my-plan" || pathname.startsWith("/my-plan/");
 
   return (
     <nav className="sticky top-0 z-50 border-b border-zinc-800/70 bg-[#0b0c0e]/95 backdrop-blur-xl">
@@ -40,7 +40,7 @@ const Navbar = () => {
         <div className="hidden items-center gap-5 md:flex lg:gap-6">
           {/* Plan */}
           <Link
-            href="/plan"
+            href="/my-plan"
             className="group flex items-center gap-2 text-sm text-zinc-400 transition hover:text-white"
           >
             <span>Plan</span>
@@ -52,7 +52,7 @@ const Navbar = () => {
 
           {/* Saved */}
           <Link
-            href="/saved"
+            href="/my-plan"
             className="group flex items-center gap-2 text-sm text-zinc-400 transition hover:text-white"
           >
             <span>Saved</span>
@@ -89,7 +89,7 @@ const Navbar = () => {
           <div className="grid grid-cols-2 gap-3">
             {/* Plan */}
             <Link
-              href="/plan"
+              href="/my-plan"
               onClick={() => setMenuOpen(false)}
               className="flex items-center justify-between rounded-xl border border-zinc-800 bg-[#111214] px-4 py-3 text-sm text-zinc-400 transition hover:border-lime-400/50 hover:text-white"
             >
@@ -151,7 +151,7 @@ const Toggle = ({ isWorkouts, isPlan, mobile = false }: ToggleProps) => {
 
       {/* Workouts */}
       <Link
-        href="/workouts"
+        href="/"
         className={`relative z-10 flex h-9 items-center justify-center rounded-full text-sm font-semibold transition-colors duration-300 ${
           mobile ? "w-1/2" : "w-24"
         } ${isWorkouts ? "text-black" : "text-zinc-500 hover:text-white"}`}
@@ -161,7 +161,7 @@ const Toggle = ({ isWorkouts, isPlan, mobile = false }: ToggleProps) => {
 
       {/* My Plan */}
       <Link
-        href="/plan"
+        href="/my-plan"
         className={`relative z-10 flex h-9 items-center justify-center rounded-full text-sm font-semibold transition-colors duration-300 ${
           mobile ? "w-1/2" : "w-24"
         } ${isPlan ? "text-black" : "text-zinc-500 hover:text-white"}`}
