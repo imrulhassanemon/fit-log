@@ -28,7 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       data-theme='black'
     >
       <GymProvider>
-        <body className="min-h-full flex flex-col">
+        <body className="min-h-full bg-black flex flex-col">
         <Navbar />
         {children}
         <Footer/>
