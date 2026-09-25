@@ -7,8 +7,7 @@ import { useContext, useState } from "react";
 import { GymContext } from "../contex/GymProvider";
 
 const Navbar = () => {
-
-  const {todaysPlan, saved} = useContext(GymContext)
+  const { todaysPlan, saved } = useContext(GymContext);
 
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);

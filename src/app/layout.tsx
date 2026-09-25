@@ -25,14 +25,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-      data-theme='black'
+      data-theme="black"
     >
       <GymProvider>
         <body className="min-h-full bg-black flex flex-col">
-        <Navbar />
-        {children}
-        <Footer/>
-      </body>
+          <Navbar />
+          {children}
+          <Footer />
+        </body>
       </GymProvider>
     </html>
   );

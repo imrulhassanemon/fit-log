@@ -4,8 +4,8 @@ import MainSection from "./component/MainSection";
 export default function Home() {
   return (
     <>
-    <Banner/>
-    <MainSection/>
+      <Banner />
+      <MainSection />
     </>
   );
 }

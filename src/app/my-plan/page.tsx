@@ -7,16 +7,13 @@ import Image from "next/image";
 import { Exercise } from "../type/type";
 import toast from "react-hot-toast";
 
-
-
 export default function Page() {
-  const { todaysPlan, setTodaysPlan, saved, setSaved } = useContext(GymContext)
+  const { todaysPlan, setTodaysPlan, saved, setSaved } = useContext(GymContext);
   const [activeTab, setActiveTab] = useState<"today" | "saved">("today");
   const [sortBy, setSortBy] = useState("duration");
   const [completed, setCompleted] = useState<number[]>([]);
 
-  const currentExercises =
-    activeTab === "today" ? todaysPlan : saved;
+  const currentExercises = activeTab === "today" ? todaysPlan : saved;
 
   const sortedExercises = useMemo(() => {
     const data = [...currentExercises];
@@ -206,8 +203,8 @@ export default function Page() {
                   {/* Image */}
                   <div className="h-25 w-full shrink-0 overflow-hidden rounded-xl md:h-21 md:w-32">
                     <Image
-                    width={300}
-                    height={300}
+                      width={300}
+                      height={300}
                       src={exercise.image}
                       alt={exercise.name}
                       className={`h-full w-full object-cover transition duration-300 group-hover:scale-105 ${

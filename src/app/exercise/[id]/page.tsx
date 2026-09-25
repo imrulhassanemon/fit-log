@@ -2,13 +2,7 @@ import SavedButton from "@/app/button/SavedButton";
 import TodaysPlan from "@/app/button/TodaysPlan";
 import { allData } from "@/app/lib/api";
 import { Exercise } from "@/app/type/type";
-import {
-  ArrowLeft,
-  Clock3,
-  Dumbbell,
-  Flame,
-  Star,
-} from "lucide-react";
+import { ArrowLeft, Clock3, Dumbbell, Flame, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -145,9 +139,9 @@ const ExerciseDetails = async ({
 
             {/* ================= ACTIONS ================= */}
             <div className="mt-7 flex flex-wrap gap-3">
-              <TodaysPlan data={data}/>
+              <TodaysPlan data={data} />
 
-              <SavedButton data={data}/>
+              <SavedButton data={data} />
             </div>
           </div>
         </div>
