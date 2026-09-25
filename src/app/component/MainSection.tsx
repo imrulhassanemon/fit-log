@@ -11,7 +11,7 @@ const MainSection = async () => {
             <p className='py-5'>Twelve lifts covering every major muscle group.</p>
             <div className='grid w-full md:grid-cols-2 gap-8 lg:grid-cols-3 justify-center items-center'>
                 {
-                    datas.map((exercise : Exercise, index : number) => <ExerciseCard key={index} exercise={exercise}></ExerciseCard>)
+                    datas.map((exercise : Exercise) => <ExerciseCard key={exercise.id} exercise={exercise}></ExerciseCard>)
                 }
             </div>
         </div>

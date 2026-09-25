@@ -12,7 +12,7 @@ const TodaysPlan = ({ data }: { data: Exercise }) => {
       
       const alreadyAddedtoPlan = todaysPlan.some((today) => today.id === data.id)
       if(alreadyAddedtoPlan){
-          toast.error("You already added.", {position:"top-right"})
+          toast.error("Already in your plan", {position:"top-right"})
         }else{
         setTodaysPlan([...todaysPlan, data]);
 

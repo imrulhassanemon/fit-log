@@ -1,15 +1,12 @@
 import SavedButton from "@/app/button/SavedButton";
 import TodaysPlan from "@/app/button/TodaysPlan";
-import { GymContext } from "@/app/contex/GymProvider";
 import { allData } from "@/app/lib/api";
 import { Exercise } from "@/app/type/type";
 import {
   ArrowLeft,
-  Bookmark,
   Clock3,
   Dumbbell,
   Flame,
-  Plus,
   Star,
 } from "lucide-react";
 import Image from "next/image";

@@ -13,7 +13,7 @@ const SavedButton = ({data}:{data: Exercise}) => {
     const alreadyAddedSaved = saved.some((save) => save.id === data.id)
 
     if(alreadyAddedSaved){
-        return toast.error("you already Added", {position:"top-right"})
+        return toast.error("Already in your savelist", {position:"top-right"})
     }
     else{
 

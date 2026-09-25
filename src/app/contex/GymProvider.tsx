@@ -1,13 +1,13 @@
 'use client'
-import { createContext, useState } from "react";
+import { createContext, useState, type Dispatch, type SetStateAction } from "react";
 import { Toaster } from "react-hot-toast";
 import { Exercise } from "../type/type";
 
 type GymContextType = {
   todaysPlan: Exercise[];
-  setTodaysPlan: (plan: Exercise[]) => void;
+  setTodaysPlan: Dispatch<SetStateAction<Exercise[]>>;
   saved: Exercise[];
-  setSaved: (saved: Exercise[]) => void;
+  setSaved: Dispatch<SetStateAction<Exercise[]>>;
 };
 
 export const GymContext = createContext<GymContextType>({

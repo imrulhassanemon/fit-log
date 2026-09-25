@@ -9,7 +9,6 @@ import { GymContext } from "../contex/GymProvider";
 const Navbar = () => {
 
   const {todaysPlan, saved} = useContext(GymContext)
-  console.log(todaysPlan.length);
 
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,8 +16,6 @@ const Navbar = () => {
   const isWorkouts = pathname === "/" || pathname.startsWith("/workouts/");
 
   const isPlan = pathname === "/my-plan" || pathname.startsWith("/my-plan/");
-
-  console.log(todaysPlan);
 
   return (
     <nav className="sticky top-0 z-50 border-b border-zinc-800/70 bg-[#0b0c0e]/95 backdrop-blur-xl">
@@ -109,7 +106,7 @@ const Navbar = () => {
 
             {/* Saved */}
             <Link
-              href="/saved"
+              href="/my-plan"
               onClick={() => setMenuOpen(false)}
               className="flex items-center justify-between rounded-xl border border-zinc-800 bg-[#111214] px-4 py-3 text-sm text-zinc-400 transition hover:border-lime-400/50 hover:text-white"
             >

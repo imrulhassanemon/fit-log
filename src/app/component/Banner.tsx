@@ -33,7 +33,7 @@ const Banner = () => {
 
           {/* Button */}
           <Link
-            href="/workouts"
+            href="/"
             className="mt-6 inline-flex items-center rounded-md bg-lime-400 px-5 py-3 text-xs font-black uppercase tracking-wide text-black transition duration-200 hover:bg-lime-300 hover:shadow-[0_0_25px_rgba(163,230,53,0.2)] active:scale-95"
           >
             Browse Workouts
@@ -48,7 +48,7 @@ const Banner = () => {
 
           <Image
             width={300}
-            height={300 }
+            height={300}
             src="/banner.png"
             alt="Workout illustration"
             className="relative z-10 h-[90%] w-auto object-contain object-bottom"

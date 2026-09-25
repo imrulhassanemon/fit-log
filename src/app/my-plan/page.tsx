@@ -9,16 +9,11 @@ import toast from "react-hot-toast";
 
 
 
-const savedExercises: Exercise[] = [];
-
 export default function Page() {
   const { todaysPlan, setTodaysPlan, saved, setSaved } = useContext(GymContext)
   const [activeTab, setActiveTab] = useState<"today" | "saved">("today");
   const [sortBy, setSortBy] = useState("duration");
   const [completed, setCompleted] = useState<number[]>([]);
-  // const [todayExercises, setTodayExercises] = useState(todaysPlan);
-  // const [savedExercisesList, setSavedExercisesList] = useState(savedExercises);
-  console.log(todaysPlan)
 
   const currentExercises =
     activeTab === "today" ? todaysPlan : saved;
@@ -59,11 +54,15 @@ export default function Page() {
 
   const removeExercise = (id: number) => {
     if (activeTab === "today") {
-      setTodaysPlan((prev) => prev.filter((exercise) => exercise.id !== id),);
-      toast.success("Successfully Removed", {position: 'top-right'}) 
+      setTodaysPlan((prev: Exercise[]) =>
+        prev.filter((exercise: Exercise) => exercise.id !== id),
+      );
+      toast.success("Successfully Removed", { position: "top-right" });
     } else {
-      setSaved((prev) => prev.filter((exercise) => exercise.id !== id));
-    toast.success("Successfully Removed", {position: 'top-right'})    
+      setSaved((prev: Exercise[]) =>
+        prev.filter((exercise: Exercise) => exercise.id !== id),
+      );
+      toast.success("Successfully Removed", { position: "top-right" });
     }
   };
 
@@ -236,7 +235,7 @@ export default function Page() {
                     </div>
 
                     <p className="mt-0.5 text-sm text-gray-400">
-                      {exercise.category}
+                      {exercise.category ?? exercise.muscleGroups.join(", ")}
                     </p>
 
                     <div className="mt-2 flex flex-wrap items-center gap-4 text-xs">
