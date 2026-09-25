@@ -5,6 +5,7 @@ import { useContext, useMemo, useState } from "react";
 import { GymContext } from "../contex/GymProvider";
 import Image from "next/image";
 import { Exercise } from "../type/type";
+import toast from "react-hot-toast";
 
 
 
@@ -30,15 +31,11 @@ export default function Page() {
     }
 
     if (sortBy === "calories") {
-      data.sort((a, b) => b.calories - a.calories);
+      data.sort((a, b) => a.caloriesBurned - b.caloriesBurned);
     }
 
     if (sortBy === "rating") {
       data.sort((a, b) => b.rating - a.rating);
-    }
-
-    if (sortBy === "name") {
-      data.sort((a, b) => a.name.localeCompare(b.name));
     }
 
     return data;
@@ -60,17 +57,15 @@ export default function Page() {
     );
   };
 
-  // const removeExercise = (id: number) => {
-  //   if (activeTab === "today") {
-  //     setTodayExercises((prev) =>
-  //       prev.filter((exercise) => exercise.id !== id),
-  //     );
-  //   } else {
-  //     setSavedExercisesList((prev) =>
-  //       prev.filter((exercise) => exercise.id !== id),
-  //     );
-  //   }
-  // };
+  const removeExercise = (id: number) => {
+    if (activeTab === "today") {
+      setTodaysPlan((prev) => prev.filter((exercise) => exercise.id !== id),);
+      toast.success("Successfully Removed", {position: 'top-right'}) 
+    } else {
+      setSaved((prev) => prev.filter((exercise) => exercise.id !== id));
+    toast.success("Successfully Removed", {position: 'top-right'})    
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#0d0f12] px-4 py-8 text-white md:px-8 lg:px-12">
@@ -164,10 +159,6 @@ export default function Page() {
                 <option value="rating" className="bg-[#191c22]">
                   Rating
                 </option>
-
-                <option value="name" className="bg-[#191c22]">
-                  Name
-                </option>
               </select>
             </div>
           )}
@@ -214,7 +205,7 @@ export default function Page() {
                   }`}
                 >
                   {/* Image */}
-                  <div className="h-25 w-full shrink-0 overflow-hidden rounded-xl md:h-[84px] md:w-[128px]">
+                  <div className="h-25 w-full shrink-0 overflow-hidden rounded-xl md:h-21 md:w-32">
                     <Image
                     width={300}
                     height={300}
@@ -256,7 +247,7 @@ export default function Page() {
 
                       <span className="flex items-center gap-1 text-gray-300">
                         <span className="text-[#baff00]">♨</span>
-                        {exercise.calories} kcal
+                        {exercise.caloriesBurned} kcal
                       </span>
 
                       <span className="flex items-center gap-1 text-gray-300">
@@ -286,13 +277,13 @@ export default function Page() {
                       {isDone ? "✓ Done" : "✓ Mark as Done"}
                     </button>
 
-                    {/* <button
+                    <button
                       onClick={() => removeExercise(exercise.id)}
                       className="ml-1 flex h-8 w-8 items-center justify-center rounded-full text-gray-400 transition hover:bg-[#282c32] hover:text-white"
                       title="Remove"
                     >
                       ×
-                    </button> */}
+                    </button>
                   </div>
                 </div>
               );

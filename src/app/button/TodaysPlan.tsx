@@ -9,9 +9,20 @@ const TodaysPlan = ({ data }: { data: Exercise }) => {
   const { todaysPlan, setTodaysPlan } = useContext(GymContext);
 
   const handleAddTodayPlan = () => {
-    setTodaysPlan([...todaysPlan, data]);
-    toast.success('Successfully created!', {position:"top-right"});
+      
+      const alreadyAddedtoPlan = todaysPlan.some((today) => today.id === data.id)
+      if(alreadyAddedtoPlan){
+          toast.error("You already added.", {position:"top-right"})
+        }else{
+        setTodaysPlan([...todaysPlan, data]);
+
+        toast.success('Added to Todays Plan', {position:"top-right"});
+    }
+
+
+    
   };
+
 
   return (
     <button
