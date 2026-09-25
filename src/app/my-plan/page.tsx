@@ -46,7 +46,8 @@ export default function Page() {
   const markAsDone = (id: number) => {
     setCompleted((prev) =>
       prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
-    );
+  );
+  return toast.success("marked the workout done", {position:'top-right'})
   };
 
   const removeExercise = (id: number) => {
