@@ -1,6 +1,6 @@
 const Loading = () => {
   return (
-    <div className="space-y-8 animate-pulse">
+    <div className="space-y-8 max-w-7xl mx-auto animate-pulse">
       {/* ================= HEADER ================= */}
       <div className="space-y-2">
         <div className="h-9 w-52 rounded-md bg-base-300" />

@@ -255,12 +255,14 @@ export default function Page() {
 
                   {/* Actions */}
                   <div className="flex items-center gap-2 md:ml-auto">
-                    <button
-                      onClick={() => alert(`Details for ${exercise.name}`)}
-                      className="rounded-full border border-gray-500 px-4 py-2 text-xs font-medium transition hover:border-white hover:bg-white hover:text-black"
-                    >
-                      View Details
-                    </button>
+                    <Link href={`exercise/${exercise.id}`}>
+                      <button
+                        // onClick={() => alert(`Details for ${exercise.name}`)}
+                        className="rounded-full border border-gray-500 px-4 py-2 text-xs font-medium transition hover:border-white hover:bg-white hover:text-black"
+                      >
+                        View Details
+                      </button>
+                    </Link>
 
                     <button
                       onClick={() => markAsDone(exercise.id)}
