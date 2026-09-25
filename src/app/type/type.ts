@@ -10,6 +10,7 @@ export interface Exercise {
 
   duration: number;          // minutes
   caloriesBurned: number;    // kcal
+  calories: number;          // kcal (alias used in plan view)
 
   sets: number;
   reps: string;
@@ -18,4 +19,7 @@ export interface Exercise {
   description: string;
 
   instructions: string[];
+
+  category?: string;
+  optional?: boolean;
 }

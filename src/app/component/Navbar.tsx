@@ -3,15 +3,22 @@
 import { Dumbbell, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { GymContext } from "../contex/GymProvider";
 
 const Navbar = () => {
+
+  const {todaysPlan, saved} = useContext(GymContext)
+  console.log(todaysPlan.length);
+
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const isWorkouts = pathname === "/workouts" || pathname.startsWith("/workouts/");
+  const isWorkouts = pathname === "/" || pathname.startsWith("/workouts/");
 
   const isPlan = pathname === "/my-plan" || pathname.startsWith("/my-plan/");
+
+  console.log(todaysPlan);
 
   return (
     <nav className="sticky top-0 z-50 border-b border-zinc-800/70 bg-[#0b0c0e]/95 backdrop-blur-xl">
@@ -46,7 +53,7 @@ const Navbar = () => {
             <span>Plan</span>
 
             <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-lime-400 px-1.5 text-[11px] font-bold text-black transition group-hover:scale-110">
-              0
+              {todaysPlan.length}
             </span>
           </Link>
 
@@ -58,7 +65,7 @@ const Navbar = () => {
             <span>Saved</span>
 
             <span className="flex h-5 min-w-5 items-center justify-center rounded-full border border-zinc-700 px-1.5 text-[11px] text-zinc-400 transition group-hover:border-lime-400 group-hover:text-lime-400">
-              0
+              {saved.length}
             </span>
           </Link>
         </div>
@@ -96,7 +103,7 @@ const Navbar = () => {
               <span>Plan</span>
 
               <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-lime-400 px-1.5 text-[11px] font-bold text-black">
-                0
+                {todaysPlan.length}
               </span>
             </Link>
 
@@ -109,7 +116,7 @@ const Navbar = () => {
               <span>Saved</span>
 
               <span className="flex h-5 min-w-5 items-center justify-center rounded-full border border-zinc-700 px-1.5 text-[11px]">
-                0
+                {saved.length}
               </span>
             </Link>
           </div>

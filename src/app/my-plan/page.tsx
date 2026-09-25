@@ -1,32 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useContext, useMemo, useState } from "react";
+import { GymContext } from "../contex/GymProvider";
+import Image from "next/image";
+import { Exercise } from "../type/type";
 
-type Exercise = {
-  id: number;
-  name: string;
-  category: string;
-  duration: number;
-  calories: number;
-  rating: number;
-  image: string;
-  optional?: boolean;
-};
 
-const todayPlan: Exercise[] = [];
 
 const savedExercises: Exercise[] = [];
 
 export default function Page() {
+  const { todaysPlan, setTodaysPlan, saved, setSaved } = useContext(GymContext)
   const [activeTab, setActiveTab] = useState<"today" | "saved">("today");
   const [sortBy, setSortBy] = useState("duration");
   const [completed, setCompleted] = useState<number[]>([]);
-  const [todayExercises, setTodayExercises] = useState(todayPlan);
-  const [savedExercisesList, setSavedExercisesList] = useState(savedExercises);
+  // const [todayExercises, setTodayExercises] = useState(todaysPlan);
+  // const [savedExercisesList, setSavedExercisesList] = useState(savedExercises);
+  console.log(todaysPlan)
 
   const currentExercises =
-    activeTab === "today" ? todayExercises : savedExercisesList;
+    activeTab === "today" ? todaysPlan : saved;
 
   const sortedExercises = useMemo(() => {
     const data = [...currentExercises];
@@ -51,12 +45,12 @@ export default function Page() {
   }, [currentExercises, sortBy]);
 
   const totalMinutes = currentExercises.reduce(
-    (total, exercise) => total + exercise.duration,
+    (total: number, exercise: Exercise) => total + exercise.duration,
     0,
   );
 
   const totalCalories = currentExercises.reduce(
-    (total, exercise) => total + exercise.calories,
+    (total: number, exercise: Exercise) => total + exercise.caloriesBurned,
     0,
   );
 
@@ -66,21 +60,21 @@ export default function Page() {
     );
   };
 
-  const removeExercise = (id: number) => {
-    if (activeTab === "today") {
-      setTodayExercises((prev) =>
-        prev.filter((exercise) => exercise.id !== id),
-      );
-    } else {
-      setSavedExercisesList((prev) =>
-        prev.filter((exercise) => exercise.id !== id),
-      );
-    }
-  };
+  // const removeExercise = (id: number) => {
+  //   if (activeTab === "today") {
+  //     setTodayExercises((prev) =>
+  //       prev.filter((exercise) => exercise.id !== id),
+  //     );
+  //   } else {
+  //     setSavedExercisesList((prev) =>
+  //       prev.filter((exercise) => exercise.id !== id),
+  //     );
+  //   }
+  // };
 
   return (
     <div className="min-h-screen bg-[#0d0f12] px-4 py-8 text-white md:px-8 lg:px-12">
-      <div className="mx-auto max-w-[1100px]">
+      <div className="mx-auto max-w-275">
         {/* ================= HEADER ================= */}
         <div className="mb-7">
           <h1 className="text-3xl font-bold tracking-tight">
@@ -134,7 +128,7 @@ export default function Page() {
                   : "text-gray-500 hover:text-white"
               }`}
             >
-              Today's Plan
+              Today&apos;s Plan
             </button>
 
             <button
@@ -151,7 +145,7 @@ export default function Page() {
 
           {/* Sort */}
           {currentExercises.length > 0 && (
-            <div className="w-full md:w-[280px]">
+            <div className="w-full md:w-70">
               <label className="mb-2 block text-sm font-medium">Sort By</label>
 
               <select
@@ -188,7 +182,7 @@ export default function Page() {
 
             <h2 className="text-xl font-bold">
               {activeTab === "today"
-                ? "Nothing in today's plan"
+                ? "Nothing in today&apos;s plan"
                 : "No saved exercises"}
             </h2>
 
@@ -198,7 +192,7 @@ export default function Page() {
                 : "You haven't saved any exercises yet. Save your favorite exercises and they will appear here."}
             </p>
 
-            <Link href={'/'}>
+            <Link href={"/"}>
               <button className="mt-6 rounded-xl bg-[#baff00] px-5 py-3 text-sm font-semibold text-black transition hover:bg-[#c8ff33]">
                 {activeTab === "today" ? "Add Exercise" : "Browse Exercises"}
               </button>
@@ -220,8 +214,10 @@ export default function Page() {
                   }`}
                 >
                   {/* Image */}
-                  <div className="h-[100px] w-full shrink-0 overflow-hidden rounded-xl md:h-[84px] md:w-[128px]">
-                    <img
+                  <div className="h-25 w-full shrink-0 overflow-hidden rounded-xl md:h-[84px] md:w-[128px]">
+                    <Image
+                    width={300}
+                    height={300}
                       src={exercise.image}
                       alt={exercise.name}
                       className={`h-full w-full object-cover transition duration-300 group-hover:scale-105 ${
@@ -290,13 +286,13 @@ export default function Page() {
                       {isDone ? "✓ Done" : "✓ Mark as Done"}
                     </button>
 
-                    <button
+                    {/* <button
                       onClick={() => removeExercise(exercise.id)}
                       className="ml-1 flex h-8 w-8 items-center justify-center rounded-full text-gray-400 transition hover:bg-[#282c32] hover:text-white"
                       title="Remove"
                     >
                       ×
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               );

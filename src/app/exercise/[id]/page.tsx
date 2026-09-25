@@ -1,3 +1,6 @@
+import SavedButton from "@/app/button/SavedButton";
+import TodaysPlan from "@/app/button/TodaysPlan";
+import { GymContext } from "@/app/contex/GymProvider";
 import { allData } from "@/app/lib/api";
 import { Exercise } from "@/app/type/type";
 import {
@@ -57,11 +60,11 @@ const ExerciseDetails = async ({
           {/* ================= IMAGE ================= */}
           <div className="overflow-hidden rounded-2xl bg-[#181b20]">
             <Image
-            width={300}
-            height={300}
+              width={300}
+              height={300}
               src={data.image}
               alt={data.name}
-              className="h-full min-h-[500px] w-full object-cover"
+              className="h-full min-h-125 w-full object-cover"
             />
           </div>
 
@@ -145,15 +148,9 @@ const ExerciseDetails = async ({
 
             {/* ================= ACTIONS ================= */}
             <div className="mt-7 flex flex-wrap gap-3">
-              <button className="flex items-center gap-2 rounded-full bg-lime-400 px-5 py-2.5 text-sm font-medium text-black transition hover:bg-lime-300">
-                <Plus size={17} />
-                Add to today&apos;s plan
-              </button>
+              <TodaysPlan data={data}/>
 
-              <button className="flex items-center gap-2 rounded-full border border-gray-500 px-5 py-2.5 text-sm transition hover:bg-white hover:text-black">
-                <Bookmark size={17} />
-                Save for later
-              </button>
+              <SavedButton data={data}/>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { Clock3, Flame, Star, Dumbbell, Layers, Repeat } from "lucide-react";
 import { Exercise } from "../type/type";
 import Link from "next/link";
+import Image from "next/image";
 
 interface ExerciseCardProps {
   exercise: Exercise;
@@ -12,14 +13,15 @@ export default function ExerciseCard({ exercise }: ExerciseCardProps) {
       <div className="group cursor-pointer w-full max-w-sm overflow-hidden rounded-3xl border border-slate-800 bg-[#0B1220] shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl">
         {/* Image */}
         <div className="relative h-60 overflow-hidden">
-          <img
+          <Image
             src={exercise.image}
             alt={exercise.name}
+            fill
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
 
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B1220] via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-[#0B1220] via-transparent to-transparent" />
         </div>
 
         {/* Content */}
