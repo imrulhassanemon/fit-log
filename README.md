@@ -8,11 +8,11 @@ The application provides a clean dark-themed fitness interface designed for a sm
 
 ## 🌐 Live Demo
 
-🔗 **Live Link:** `YOUR_LIVE_LINK_HERE`
+🔗 **Live Link:** `https://fit-log-iota-three.vercel.app/`
 
 ## 📦 GitHub Repository
 
-🔗 **GitHub:** `YOUR_GITHUB_REPOSITORY_LINK_HERE`
+🔗 **GitHub:** `https://github.com/imrulhassanemon/fit-log`
 
 ---
 
