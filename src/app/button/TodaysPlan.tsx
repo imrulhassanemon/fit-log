@@ -11,9 +11,15 @@ const TodaysPlan = ({ data }: { data: Exercise }) => {
   const handleAddTodayPlan = () => {
       
       const alreadyAddedtoPlan = todaysPlan.some((today) => today.id === data.id)
+
+      if(todaysPlan.length>=5){
+        return toast.error("Today's plan is full -- finish this first.", {position:"top-right"})
+      }
+
       if(alreadyAddedtoPlan){
           toast.error("Already in your plan", {position:"top-right"})
-        }else{
+        }
+        else{
         setTodaysPlan([...todaysPlan, data]);
 
         toast.success('Added to Todays Plan', {position:"top-right"});
