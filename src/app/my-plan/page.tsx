@@ -42,13 +42,23 @@ export default function Page() {
     (total: number, exercise: Exercise) => total + exercise.caloriesBurned,
     0,
   );
-
   const markAsDone = (id: number) => {
-    setCompleted((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id],
-  );
-  return toast.success("marked the workout done", {position:'top-right'})
-  };
+  const alreadyCompleted = completed.includes(id);
+
+  if (alreadyCompleted) {
+    setCompleted((prev) => prev.filter((item) => item !== id));
+
+    toast.success("Workout marked as undone", {
+      position: "top-right",
+    });
+  } else {
+    setCompleted((prev) => [...prev, id]);
+
+    toast.success("Workout marked as done", {
+      position: "top-right",
+    });
+  }
+};
 
   const removeExercise = (id: number) => {
     if (activeTab === "today") {
