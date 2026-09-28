@@ -1,99 +1,185 @@
-# 🏋️ FitLog — Workout Library & Plan Tracker
+# 🏋️ FitLog — Workout Library & Personal Plan Tracker
 
-FitLog is a modern, responsive workout library and personal workout planning application built with **Next.js**. It allows users to explore exercises, view detailed workout information, create a daily workout plan, save exercises for later, and track completed workouts.
+A modern, responsive workout library and personal workout planner built with **Next.js 16**, **TypeScript**, and **Tailwind CSS**.
 
-The application provides a clean dark-themed fitness interface designed for a smooth experience across **desktop, tablet, and mobile devices**.
+FitLog helps users discover exercises, create a daily workout routine, save favorite workouts, and track completed exercises — all with a clean dark-themed fitness interface that works seamlessly across **desktop, tablet, and mobile** devices.
+
+> **Train with intent. Log every set.**
 
 ---
 
 ## 🌐 Live Demo
 
-🔗 **Live Link:** `https://fit-log-iota-three.vercel.app/`
+**Live Website:** https://fit-log-iota-three.vercel.app/
 
-## 📦 GitHub Repository
+## 💻 GitHub Repository
 
-🔗 **GitHub:** `https://github.com/imrulhassanemon/fit-log`
+**Source Code:** https://github.com/imrulhassanemon/fit-log
 
----
+<!-- Example -->
 
-## 🛠️ Technologies Used
-
-* **Next.js** — Application framework and routing
-* **TypeScript** — Type-safe development
-* **Tailwind CSS** — Responsive styling
-* **DaisyUI** — UI components
-* **Lucide React** — Icons
-* **React Toastify** — Toast notifications
-* **REST API** — Workout data
-* **LocalStorage** — Persisting plan and saved workouts
+<!-- ![FitLog Homepage](./public/preview/home.png) -->
 
 ---
 
-## ✨ Key Features
+## 🚀 Features
 
-### 1. 🏋️ Workout Library
+### 🏋️ Workout Library
 
-Browse a collection of workouts with information such as:
+Explore a collection of workouts with complete information including:
 
-* Workout name
-* Muscle groups
-* Equipment
-* Duration
-* Calories
-* Rating
+* Exercise name
+* Target muscle groups
+* Required equipment
+* Workout duration
+* Estimated calories burned
+* User rating
 
-Users can click any workout to view its detailed information.
+Users can open any workout to view detailed information.
 
-### 2. 📋 Today's Workout Plan
+### 📋 Today's Workout Plan
 
-Users can add workouts to **Today's Plan** and manage their daily workout routine.
+Create and manage your daily workout routine.
 
-* Maximum 5 workouts
-* Live exercise count
-* Total workout minutes
-* Total calories
-* Remove workouts
-* Mark workouts as completed
+* Add up to **5 exercises** per day.
+* Live workout counter.
+* Calculate total workout duration.
+* Calculate total calories burned.
+* Remove workouts anytime.
+* Mark workouts as completed.
 
-### 3. ❤️ Save Workouts for Later
+### ❤️ Save Workouts for Later
 
-Users can save their favorite workouts and access them from the **Saved** tab on the My Plan page.
+Save favorite workouts and access them anytime.
 
-The navbar also displays the current number of saved workouts.
+* Save exercises from the workout library.
+* View saved workouts inside **My Plan**.
+* Navbar displays the current number of saved workouts.
 
-### 4. 🔍 Sort & Responsive UI
+### 🔍 Sorting & Responsive Design
 
-The workout library can be sorted by:
+Sort workouts instantly by:
 
 * Duration
-* Calories
+* Calories Burned
 * Rating
 
-The entire application is responsive and works smoothly on **mobile, tablet, and desktop** devices.
+Fully responsive design optimized for:
 
-### 5. 🔔 Interactive Workout Tracking
+* 💻 Desktop
+* 📱 Mobile
+* 📲 Tablet
 
-FitLog provides instant feedback through toast notifications when users:
+### 🔔 Interactive Workout Tracking
 
-* Add a workout
-* Save a workout
-* Mark a workout as done
-* Remove a workout
+Receive instant feedback using toast notifications when users:
 
-Workout and saved data can also persist using **LocalStorage**.
+* Add a workout.
+* Save a workout.
+* Remove a workout.
+* Mark a workout as completed.
+
+All workout plan and saved workout data are persisted using **LocalStorage**.
 
 ---
 
-## 🚀 Project Goal
+## 🛠️ Tech Stack
 
-FitLog is designed to provide a simple and focused way to **discover workouts, build a daily plan, and track completed exercises**.
+| Technology         | Purpose               |
+| ------------------ | --------------------- |
+| **Next.js 16**     | App Router & Routing  |
+| **TypeScript**     | Type-safe development |
+| **Tailwind CSS**   | Responsive styling    |
+| **DaisyUI**        | UI Components         |
+| **Lucide React**   | Icons                 |
+| **React Toastify** | Toast Notifications   |
+| **REST API**       | Workout Data          |
+| **LocalStorage**   | Persist User Data     |
 
-> **TRAIN WITH INTENT. LOG EVERY SET.**
+---
+
+## 📁 Project Structure
+
+```bash
+fit-log/
+├── app/
+│   ├── workout/
+│   ├── my-plan/
+│   ├── saved/
+│   └── page.tsx
+├── components/
+├── data/
+├── types/
+├── utils/
+├── public/
+└── README.md
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+Clone the repository:
+
+```bash
+git clone https://github.com/imrulhassanemon/fit-log.git
+```
+
+Navigate into the project:
+
+```bash
+cd fit-log
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Open **http://localhost:3000** in your browser.
+
+---
+
+## 🎯 Project Goal
+
+FitLog is designed to provide a simple and focused experience for people who want to:
+
+* Discover workouts.
+* Build a personalized daily workout plan.
+* Save favorite exercises.
+* Track completed workouts.
+
+The goal is to create an intuitive fitness tracking experience using modern frontend technologies.
+
+---
+
+## 🔮 Future Improvements
+
+Planned features for future versions:
+
+* 🔐 User Authentication (Firebase/Auth.js)
+* ☁️ Cloud Database Integration
+* 📊 Workout Progress Analytics
+* 📅 Weekly & Monthly Workout History
+* 🎯 Custom Workout Categories
+* 🌙 Light/Dark Theme Toggle
 
 ---
 
 ## 👨‍💻 Author
 
-**Imrul Hassan Emon**
+### Imrul Hassan Emon
 
-Built with ❤️ using Next.js.
+**Frontend Developer**
+
+* GitHub: https://github.com/imrulhassanemon
+* LinkedIn: *(Add your LinkedIn profile here.)*
+
+Built with ❤️ using **Next.js**, **TypeScript**, and **Tailwind CSS**.
